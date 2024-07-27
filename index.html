@@ -1,0 +1,306 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8">
+<title>States GrandRP DE #3 Panel</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+body, html {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: #222;
+    color: white;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 60px; /* Retaining the increased right padding */
+    font-size: 16px;
+}
+
+.clock {
+    font-size: 48px;
+    text-align: left;
+    padding-left: 60px; /* Align with the start of the tiles */
+    margin: 20px auto 40px auto; /* Centering the clock horizontally with margin auto */
+    margin-top: 40px;
+    max-width: 1200px; /* Matching the width of the tile container */
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* Increased gap between tiles for better spacing */
+    padding: 0 60px; /* Uniform padding for alignment */
+    max-width: 1200px; /* Adjusted maximum width for a narrower layout */
+    margin: auto; /* Center the container */
+    overflow-y: auto;
+    height: 80vh;
+}
+
+.category {
+    border-bottom: 1px solid #c7c7c7;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.category h2 {
+    color: #ccc;
+    font-size: 24px;
+    padding-left: 0px; /* Aligned with the tiles */
+    margin-bottom: 15px; /* Increased bottom margin for better visual separation */
+}
+
+.tile {
+    background-color: #0078D7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    height: 150px; /* Standardized tile height */
+    margin-bottom: 15px;
+}
+
+.tile:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.tile.small {
+    grid-column: span 1;
+}
+
+.tile.medium {
+    grid-column: span 2;
+}
+
+.tile.large {
+    grid-column: span 3;
+}
+
+.tile.xlarge {
+    grid-column: span 4;
+    height: 310px; /* Larger tile for more content or emphasis */
+}
+
+/* Define color classes for tiles */
+.tile.blue {
+    background-color: #0078D7;
+}
+
+.tile.red {
+    background-color: #E81123;
+}
+
+.tile.green {
+    background-color: #00A300;
+}
+
+.tile.orange {
+    background-color: #F7630C;
+}
+
+.tile.purple {
+    background-color: #8E009C;
+}
+.tile.discord {
+    background-color: #5865F2;
+}
+.tile.fib {
+    background-color: #000;
+    color: gold;
+}
+.tile.quickbox {
+    background-color: #000;
+    color: rgb(73, 255, 194);
+}
+.tile.states {
+    background-color: white;
+    color: darkred;
+}
+.tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Organize content vertically */
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    height: 150px; /* Standardized tile height */
+    margin-bottom: 15px;
+    color: white; /* Ensure text is visible on colored backgrounds */
+    font-size: 20px; /* Larger font size for better readability */
+    position: relative; /* Needed for positioning icons or additional elements */
+    overflow: hidden; /* Keeps child elements contained within the tile */
+}
+
+.tile:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.tile::before { /* Add a subtle gradient overlay or pattern */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.tile i { /* Style for icons */
+    font-size: 40px;
+    margin-bottom: 10px;
+    z-index: 2; /* Above the gradient overlay */
+}
+
+.tile span { /* Style for text */
+    z-index: 2; /* Above the gradient overlay */
+}
+.powered {
+  text-align:center;
+  font-size:10pt;
+}
+.redheart {
+  color: red;
+}
+body, html {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background: url('images/menubg1.webp') no-repeat center center fixed; 
+    background-size: cover;
+    color: white;
+}
+
+/* Adding a mask over the wallpaper */
+.mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(34, 34, 34, 0.5) 0%, rgba(34, 34, 34, 0.85) 100%);
+    z-index: 0; /* Ensure it's below the content */
+}
+
+.menu-container, .top-bar, .clock {
+    position: relative;
+    z-index: 1; /* Higher z-index to keep above the mask */
+}
+
+/* Ensure container and other elements accommodate the background */
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 0 60px;
+    max-width: 1200px;
+    margin: auto;
+    background: transparent; /* Ensuring background doesn't block the wallpaper */
+}
+a {
+  text-decoration:none;
+}
+/* For WebKit browsers */
+::-webkit-scrollbar{
+width: 8px;
+background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb{
+background-color: rgba(0, 0, 0, 0.5);
+border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+background-color: rgba(0, 0, 0, 0.7);
+}
+
+::-webkit-scrollbar-track{
+background: transparent;
+}
+
+/* For Firefox */
+body{
+scrollbar-width: thin;
+scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+scrollbar-base-color: transparent;
+scrollbar-face-color: rgba(0, 0, 0, 0.5);
+scrollbar-highlight-color: transparent;
+scrollbar-shadow-color: transparent;
+scrollbar-track-color: transparent;
+scrollbar-arrow-color: transparent;
+scrollbar-dark-shadow-color: transparent;
+scrollbar-3dlight-color: transparent;
+}
+</style>
+</head>
+<body>
+<div class="mask"></div> <!-- Mask overlay -->
+<header class="top-bar">
+<div class="username"> 
+    <!-- <div style="padding: 30px; width: 1280px; position: absolute; top: 0; left: 0; right: 0; margin: auto; background: rgb(41, 41, 41); color: white;">
+        Seit 2022 bastle ich als Hobby an der SAHP Toolbox rum, um der GTA RP Community das Leben leichter zu machen. Inzwischen haben wir mehrere Apps am Start, besonders in der Leitstelle und bei den Personalakten, und konnten damit den staatlichen Organisationen ordentlich unter die Arme greifen und sie effizienter arbeiten lassen. Welche Apps gibt es noch? Das siehst du hier in unserem <a style="color: rgb(0, 204, 255);" href="https://discord.com/channels/1094588321574948886/1253268391528103936">App Überblick</a><br><br>
+        Damit das auch so bleibt, solange es die GrandRP-Server gibt, brauchen wir eure Unterstützung.<br><br>
+        <strong>Warum spenden?</strong><br><br>
+        - <strong>Weiterentwicklung und Wartung:</strong> Eure Spenden helfen uns, die Tools up to date zu halten und ständig neue Funktionen einzubauen.<br>
+        - <strong>Serverkosten:</strong> Der Betrieb der Plattform kostet natürlich auch Geld.<br>
+        - <strong>Community-Support:</strong> Mit eurer Hilfe können wir unsere States Apps weiterhin kostenlos und für alle zugänglich machen.<br><br>
+        <strong>Jede freiwillige Spende zählt!</strong> Egal ob klein oder groß jede Spende hilft uns, das Digitale States Projekt am Laufen zu halten und noch besser zu machen. Eure Unterstützung ist ein riesiger Beitrag für die ganze GTA RP State Community.<br><br>
+        Als kleines Dankeschön wird es für Unterstützer eine Supporter-Rolle auf dem States App Discord geben und exklusive Profilkarten in naher Zukunft. Bitte gebt bei der Spende euren Discordnamen und IC-Namen in der Nachricht an, wenn ihr dieses Geschenk annehmen wollt.<br><br>
+        Vielen Dank für eure Hilfe und euer Vertrauen in die States Apps!<br><br>
+        Liebe Grüße,<br>
+        Euer States Apps Team<br><br>
+        <a href="https://www.paypal.com/donate/?hosted_button_id=WH9M8MH3GXPHA" style="padding: 10px; background: orange; font-weight: 600; color: black; text-decoration: none;">Jetzt spenden (Paypal)</a>
+      </div>
+       -->
+          
+    <a href="/auth/states" style="border-color:rgb(0, 183, 255);border-style: solid;border-width: 0 1px 1px 1px;padding: 10px; color: rgb(0, 183, 255);font-size: 20pt;">States Login</a>      <!--- <div style="font-size:16pt;background:rgb(190, 124, 1);padding:15px;color:white"><strong>Achtung!</strong> Die lproxy.net Links sind nur bis Freitag 07.06.2024 gültig. Danach gelten die states-grand.com Links erneut. Manche States Apps funktionieren bis dahin nicht.</div> -->
+</div>
+</header>
+<div class="clock">12:56:57 AM</div>
+
+<div class="menu-container">
+    <section class="category">
+        <h2>Apps</h2>
+<a target="_blank" href="https://tbox.lproxy.net" class="tile medium states" id="app2"><span>States Toolbox </span><p class="powered">powered by Nathan Shadowfox <span class="redheart">❤</span></p></a>
+<a class="tile medium quickbox" target="_blank" href="https://quickbox.lproxy.net" id="app3"><span>States Quickbox <br></span> <p class="powered">inspired by Flo Heber <span class="redheart">❤</span><br> powered by Nathan Shadowfox <span class="redheart">❤</span></p></a>
+<a class="tile medium fib" target="_blank" href="https://fib-department.com" id="app3"><span>FIB Bußgeldrechner <br> </span> <p class="powered">powered by Flo Heber <span class="redheart">❤</span></p></a>
+<a target="_blank" href="https://states-grand.com/apps/gov_sperrzonen/" class="tile small" id="app4"><span>Sperrzonen Generator</span><p class="powered">powered by Adrian Madeyro &amp; Nathan Shadowfox (Web Version)<span class="redheart">❤</span></p></a>
+<a target="_blank" href="https://states-grand.com/apps/eventprotocolgen/" class="tile small purple" id="app5"><span>Eventprotokoll Generator</span><p class="powered">powered by Nathan Shadowfox <span class="redheart">❤</span></p></a>
+
+    </section>
+    <section class="category">
+        <h2>Gov Dokumente</h2>
+        <a target="_blank" href="https://gta5grand.com/forum/forums/242/" class="tile medium purple" id="app3">Gesetzbücher</a>
+        <a target="_blank" href="https://docs.google.com/spreadsheets/d/1c5lMFTcck5ihpSBAI6JnR27ZEGuDDCXy0wDcfPlDLRg/edit#gid=349173045" class="tile small green" id="app4">Bußgeldkatalog</a>
+        <a target="_blank" href="https://docs.google.com/spreadsheets/d/14Bexj26waEBob7ufdSy0ilHATO61I9HuL1iAH6TRBqI/edit#gid=0" class="tile small green" id="app4b">Anwälte</a>
+    </section>
+    <section class="category">
+        <h2>Events</h2>
+        <a target="_blank" href="https://docs.google.com/presentation/d/1cQ1EUTUc2xUtB0G3AIZ0IvGdaNnGuWO1_HCEV7H2yxo/edit#slide=id.p" class="tile medium orange" id="app6">Alle Eventregeln <p class="powered">powered by Oliver Hakuna <span class="redheart">❤</span></p></a>
+        <a target="_blank" href="https://docs.google.com/spreadsheets/d/1lf-E3JEEejSq71ISKBChQXw2LtowtvQdnm7R1yxUbCo/edit#gid=0" class="tile medium green" id="app6">States Event Erlaubnis <p class="powered">powered by State Verwaltung <span class="redheart">❤</span></p></a>      
+    </section>
+      <section class="category">
+        <h2>Sonstiges</h2>
+        <a href="https://taskmanager.states-grand.com/" target="_blank" class="tile medium blue" id="app6">SAHP Dienstplan <p class="powered">powered by Nathan Shadowfox <span class="redheart">❤</span></p></a> 
+<a href="https://states-grand.com/apps/beschwerden_generator/" target="_blank" class="tile medium blue" id="app6">Forum Beschwerde <br> Template Generator <p class="powered">powered by Nathan Shadowfox <span class="redheart">❤</span></p> 
+</a><a target="_blank" href="https://discord.gg/cewbzBXqn3" class="tile medium discord" id="app6">States Apps Discord</a> 
+<a target="_blank" href="https://www.paypal.com/donate/?hosted_button_id=WH9M8MH3GXPHA" class="tile medium red" id="app6">States Apps Spende (Paypal) <span class="redheart">❤</span></a>         
+    </section>
+</div>
+<script>
+ function updateTime() {
+    const now = new Date();
+    const formatted = now.toLocaleTimeString();
+    document.querySelector('.clock').innerText = formatted;
+}
+
+setInterval(updateTime, 1000);
+updateTime();  // Initialize the clock immediately
+
+</script>
+
+
+</body></html>
